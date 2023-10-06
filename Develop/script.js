@@ -21,8 +21,17 @@ $(function () {
     console.log(thisHour)
     $('.time-block').each(function () {
       var timeBlock = parseInt($(this).attr('id').split('-')[1])
+      console.log(timeBlock)
+      if (timeBlock < thisHour) {
+        $(this).addClass('past')
+      } else if (timeBlock === thisHour) {
+        $(this).addClass('present')
+      } else {
+        $(this).addClass('future')
+      }
     })
   }
+  pastpresentfuture()
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
